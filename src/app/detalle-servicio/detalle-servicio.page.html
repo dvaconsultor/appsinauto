@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  		<ion-back-button routerLink="/servicios" routerDirection="backward" >Cancelar</ion-back-button>
+  	</ion-buttons>
+    <ion-title style="text-align: center;">{{vehiculo}}
+  	</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+	<ion-item>
+		<ion-label style="text-align: center;">
+			Contratos del servicio
+		</ion-label>
+	</ion-item>
+	<ion-list>
+
+  		<ion-button expand="block" color="light" *ngFor="let contrato of contratos" (click)="itemTapped($event,contrato)">
+          {{contrato.sono}} {{contrato.estado}} 
+        </ion-button>
+    </ion-list>
+</ion-content>

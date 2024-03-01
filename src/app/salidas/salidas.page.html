@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  		<ion-button (click)="cancelar()" ><ion-icon size="large" name="arrow-back"></ion-icon></ion-button>
+  	</ion-buttons>
+    <ion-title style="text-align: center;">Salidas
+  	</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+	<!-- <ion-searchbar ion-input [(ngModel)]="buscar" [showCancelButton]="shouldShowCancel" (keyup.enter)="onInput($event)" (ionCancel)="onCancel($event)" placeholder="Ingresar Número de Contrato"> </ion-searchbar> -->
+	<ion-item>
+		<ion-button color="light" (click)="onInput($event)" >
+			<ion-icon name="search-sharp"></ion-icon>
+		</ion-button>
+		<ion-input required [(ngModel)]="buscar" type="text" (keyup.enter)="onInput($event)" placeholder="Ingresar Número de Contrato" style="margin-left: 12px;"></ion-input>
+	</ion-item>
+    <div *ngIf="hide">
+    	<ion-item style="text-align: left">
+    		<ion-label>Servicio: {{servicio}}</ion-label>
+    	</ion-item>
+    	<ion-item style="text-align: left">
+    		<ion-label>Contratante: {{contratante}}</ion-label>
+    	</ion-item>
+    	<ion-item style="text-align: left">
+    		<ion-label>Salida: {{fechasalida}}</ion-label>
+    	</ion-item>
+    	<ion-item style="text-align: left">
+    		<ion-label>Regreso: {{fecharegreso}}</ion-label>
+    	</ion-item>
+    	<ion-item style="text-align: center">
+    		<ion-label>Evidencias</ion-label>
+    		<ion-fab-button (click)="foto()">
+		      <ion-icon name="camera"></ion-icon>
+		    </ion-fab-button>
+		</ion-item>
+		<ion-item >
+    		<!-- Responsive Layout with Ion Grid-->
+		    <ion-grid>
+		      <ion-row>
+		        <ion-col col-6 col-md-4 col-xl-3 *ngFor="let img of images">
+		        	 <img [src]="img.photo" class="image-container"> 
+		        </ion-col>
+		      </ion-row>
+		    </ion-grid>
+    	</ion-item>
+    	<ion-item style="text-align: center">
+    		<ion-label>Check List del Contrato</ion-label>
+    	</ion-item>
+    	<ion-item style="text-align: left">
+    		<ion-label>Kilometraje de salida: </ion-label>
+    		<ion-input required [(ngModel)]="kilometrajesalida" type="text"></ion-input>
+    	</ion-item>
+    	<ion-item style="text-align: left">
+    		<ion-label style="white-space: pre-wrap !important;">Tanque de Gasolina</ion-label>
+    		<ion-range min="0" max="100" value="100"  [(ngModel)]="gasolinasalida" (ionChange)="setPorceGasolina()">
+    			<ion-label slot="end">{{porcegasolina}}</ion-label>
+		    </ion-range>
+    	</ion-item>
+	  	<ion-list style="background: transparent;">		
+	  		<ion-item *ngFor="let listado of listados" style="text-align: left;">
+	           	<ion-checkbox slot="start" checked="{{listado.checked}}" class="checklistitems" name="{{listado.requisito}}"></ion-checkbox>
+	        	<ion-label>{{listado.requisito}}</ion-label>
+	        </ion-item>
+	    </ion-list>
+    </div>
+</ion-content>
+<ion-footer>
+	<Ion-toolbar style="text-align: center">
+        <ion-button color="success" (click)="guardarchecklist()" >
+			<ion-icon name="save-sharp"></ion-icon>
+		</ion-button>
+    </Ion-toolbar>
+</ion-footer>

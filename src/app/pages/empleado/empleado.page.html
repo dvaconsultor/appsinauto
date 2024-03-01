@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/login" routerDirection="root" >Regresar</ion-back-button>
+    </ion-buttons>
+    <ion-title  style="text-align: center;">Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-grid class="fullheight xc">
+  	<ion-row class="marginrow">
+        <ion-item>
+          <ion-label position="stacked">Usuario <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required [(ngModel)]="usuario" type="text" autofocus="true"></ion-input>
+          <ion-icon slot="end" name="person-circle" size="large"></ion-icon>
+        </ion-item>
+  	</ion-row>
+    <ion-row class="marginrow">
+      <ion-item>
+        <ion-label position="stacked">Contraseña <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input [(ngModel)]="contra" (keyup.enter)="login()" [type]="passwordType" required></ion-input>
+        <ion-icon slot="end" [name]="hide" (click)="hideShowPassword()" size="large"></ion-icon>
+      </ion-item>
+    </ion-row>
+    <ion-row class="marginrow">
+	    <div class="ion-padding">
+	      <ion-button expand="block" (click)="login()" class="ion-no-margin">Entrar</ion-button>
+	    </div>
+    </ion-row> 
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-item style="width: 100%;">
+  <ion-label>
+    Total Acumulado de gastos: {{acu}}
+  </ion-label>
+</ion-item>
+<ion-grid>
+  <ion-row *ngFor="let gasto of gastos">
+    <ion-row>
+      <ion-label>
+        {{gasto.gasto}}
+      </ion-label>
+    </ion-row>    
+    <ion-row>
+      <ion-col>
+        <ion-label>
+          {{gasto.comment}}
+        </ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-label>
+            Cantidad: {{gasto.cantidad}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label>
+            Precio: {{gasto.precio}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label>
+            Total: {{gasto.totalgasto}}
+          </ion-label>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+</ion-grid>

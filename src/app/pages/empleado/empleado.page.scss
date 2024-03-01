@@ -1,0 +1,18 @@
+ion-content.background {
+    --background: url("../../../assets/fondo_app.jpg") 0 0/100% 100% no-repeat;
+}
+ion-item {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullheight{
+	height: 100%;
+  	flex-direction: column;
+}

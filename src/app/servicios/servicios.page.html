@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar>
+  	<ion-buttons slot="start" >
+		<ion-back-button routerLink="/home" routerDirection="backward" >Cancelar</ion-back-button>
+	</ion-buttons>
+    <ion-title style="text-align: center;">Servicios
+  	</ion-title>
+  </ion-toolbar>
+  <ion-searchbar ion-input [(ngModel)]="buscar" [showCancelButton]="shouldShowCancel" (ionChange)="onInput( $event )" (ionCancel)="onCancel($event)" placeholder="Buscar Servicio"> </ion-searchbar>
+</ion-header>
+
+<ion-content class="background">
+	<ion-label>Categoría</ion-label>
+    <ion-select placeholder="Selecciona una categoría" (ionChange)="catChange( $event )" [(ngModel)]="categoria">
+      <ion-select-option value="">Todas</ion-select-option>
+      <ion-select-option value="Sedan">Automovil Sedan</ion-select-option>
+      <ion-select-option value="SUV">SUV</ion-select-option>
+      <ion-select-option value="Pick UP">Pick UP</ion-select-option>
+      <ion-select-option value="Bagoneta">Bagoneta</ion-select-option>
+      <ion-select-option value="Autobus">Autobus</ion-select-option>
+      <ion-select-option value="Minibus">Minibus</ion-select-option>
+    </ion-select>
+    <ion-label>Ubicacion</ion-label>
+    <ion-select placeholder="Selecciona una Ubicación" (ionChange)="ubiChange( $event )" [(ngModel)]="ubicacion">
+      <ion-select-option value="">Todas</ion-select-option>
+      <ion-select-option value="Los Mochis">Los Mochis</ion-select-option>
+      <ion-select-option value="Culiacán">Culiacán</ion-select-option>
+    </ion-select>
+
+    <ion-item >
+		<!-- Responsive Layout with Ion Grid-->
+	    <ion-grid style="background: transparent;">
+	      <ion-row col-6 col-md-4 col-xl-3 *ngFor="let servicio of servicios | filtro: buscar: columna" style="background: #FFF; opacity: 80%;">
+	      	<!-- <div *ngIf="hide"> -->
+	        <ion-col  col-6 col-md-4 col-xl-3 (click)='onClick( event, servicio )' style="cursor: pointer;background: transparent; width:50%;">
+	        	<ion-img src="{{servicio.img}}" ></ion-img>
+	        </ion-col>
+	        <ion-col  col-6 col-md-4 col-xl-3 (click)='onClick( event, servicio )' style="cursor: pointer;background: transparent; width:50%;">
+	        	<ion-row>
+	        		<ion-label style="white-space: pre-wrap !important; font-weight: bold;">Nombre: {{servicio.servicio}}</ion-label>
+	        	</ion-row>
+	        	<ion-row>
+	        		<ion-label style="white-space: pre-wrap !important; font-weight: bold;">Categoría: {{servicio.categoria}}</ion-label>
+	        	</ion-row>
+	        	<ion-row>
+	        		<ion-label style="font-weight: bold;">Placas: {{servicio.placas}}</ion-label>
+	        	</ion-row>
+	        	<ion-row>
+	        		<ion-label style="font-weight: bold;">Ubicación: {{servicio.ubicacion}}</ion-label>
+	        	</ion-row>
+	        </ion-col>
+	    	<!-- </div> -->
+	      </ion-row>
+	    </ion-grid>
+	</ion-item>
+</ion-content>

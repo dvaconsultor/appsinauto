@@ -1,0 +1,20 @@
+<ion-item style="text-align: left">
+  <ion-label>KMs de salida:</ion-label>
+</ion-item>
+<ion-item style="text-align: center">
+  <ion-label>{{kmssalida}}</ion-label>
+</ion-item>
+<ion-item style="text-align: left">
+  <ion-label style="white-space: pre-wrap !important;">Gas. de Salida</ion-label>
+</ion-item>		    	
+<ion-item >
+  <ion-range min="0" max="100" value="{{gassalida}}" disabled>
+    <ion-label slot="end">{{porcegassalida}}</ion-label>
+  </ion-range>
+</ion-item>
+<ion-list style="background: transparent;">
+  <ion-item *ngFor="let listado of listados" style="text-align: left">
+    <ion-checkbox slot="start" checked="{{listado.checked}}" class="checklistitems" name="{{listado.requisito}}" disabled></ion-checkbox>
+    <ion-label>{{listado.requisito}}</ion-label>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      APP OPERATIVA
+      <div style="float: right;">
+        <ion-button fill="clear" title="Cerrar Sesión" (click)="logout()" ><ion-icon size="large" name="power"></ion-icon></ion-button>
+      </div>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true">
+  <ion-grid class="xc fullheight">
+   <ion-row class="marginrow" [hidden]="hidE">
+      <ion-col style="text-align: center">
+        <ion-icon size="large" name="key"></ion-icon> 
+      </ion-col>
+      <ion-col style="text-align: left">
+        <ion-button color="light" style="width: 120px;" (click)="salidas()"> SALIDAS</ion-button>
+      </ion-col>
+    </ion-row>  
+    <ion-row class="marginrow" [hidden]="hidE">
+      <ion-col style="text-align: center">
+        <ion-icon size="large" name="clipboard"></ion-icon>
+      </ion-col>
+      <ion-col style="text-align: left">
+        <ion-button color="light" style="width: 120px;" (click)="entradas()" >RECEPCIÓN</ion-button>
+      </ion-col>
+    </ion-row> 
+    <ion-row class="marginrow" [hidden]="hidE">
+      <ion-col style="text-align: center">
+        <ion-icon size="large" name="search"></ion-icon>
+      </ion-col>
+      <ion-col style="text-align: center">
+        <ion-button color="light" style="width: 120px;" (click)="servicios()">SERVICIOS</ion-button>
+      </ion-col>
+    </ion-row> 
+    <ion-row class="marginrow" [hidden]="hidC">
+      <ion-col style="text-align: center">
+        <ion-icon size="large" name="clipboard"></ion-icon>
+      </ion-col>
+      <ion-col style="text-align: left">
+        <ion-button color="light" style="width: 120px;" (click)="gastos()">LIQUIDAR</ion-button>
+      </ion-col>
+    </ion-row>   
+  </ion-grid>
+</ion-content>

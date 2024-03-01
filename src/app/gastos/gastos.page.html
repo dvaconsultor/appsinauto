@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+  		<ion-button (click)="cancelar()" ><ion-icon size="large" name="arrow-back"></ion-icon></ion-button>
+  	</ion-buttons>
+    <ion-title style="text-align: center;">Gastos
+  	</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="ion-padding">
+		<ion-button color="light" (click)="mostrarPopUP($event)" expand="full" >Historico</ion-button>
+	</div>
+	<ion-item style="text-align: left">
+		<ion-label>Producto</ion-label>
+	    <ion-select placeholder="Selecciona un gasto" [(ngModel)]="producto" >
+	      <ion-select-option *ngFor="let option of options" value="{{option.value}}">{{option.text}}</ion-select-option>
+	    </ion-select>
+	</ion-item>
+	<ion-item style="text-align: left">
+		<ion-label>Cantidad: </ion-label>
+		<ion-input required [(ngModel)]="cantidad" (ionBlur)="calcular()" type="text" style="text-align: right;"></ion-input>
+	</ion-item>
+	<ion-item style="text-align: left">
+		<ion-label>Precio: </ion-label>
+		<ion-input required [(ngModel)]="precio" (ionBlur)="calcular()" type="text" style="text-align: right;"></ion-input>
+	</ion-item>
+	<ion-item style="text-align: left">
+		<ion-label>Comentario: </ion-label>
+		<ion-input required [(ngModel)]="comentario" type="text" style="text-align: right;"></ion-input>
+	</ion-item>
+	<ion-item style="text-align: left">
+		<ion-label>Total: <b style="text-align: right;">{{total}}</b></ion-label>
+	</ion-item>
+</ion-content>
+<ion-footer>
+	<Ion-toolbar style="text-align: center">
+        <ion-button color="success" (click)="confirm('¿Deseas Guardar el Gasto?','Ya no podrás editar el gasto una vez que se guarde.')">
+			<ion-icon name="save-sharp"></ion-icon>
+		</ion-button>
+    </Ion-toolbar>
+</ion-footer>

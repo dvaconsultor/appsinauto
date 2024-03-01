@@ -1,0 +1,10 @@
+{
+  "name": "APP OPERATIVA SINAUTO",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
